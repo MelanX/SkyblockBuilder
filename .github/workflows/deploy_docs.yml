@@ -1,0 +1,28 @@
+name: 'Deploy'
+on: push
+
+jobs:
+  deploy:
+    if: startsWith(github.repository, 'MelanX/') # don't run this in forks
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+
+      - name: 'Install'
+        run: sudo apt-get install -y python3 python3-pip
+
+      - name: 'Configure'
+        run: pip3 install mkdocs==1.2.3 mkdocs-material==1.0.4
+
+      - name: 'Build'
+        run: mkdocs build -d build_site
+
+      - name: 'Deploy'
+        uses: 'JamesIves/github-pages-deploy-action@4.1.4'
+        with:
+          branch: gh-pages
+          folder: 'build_site'
+          clean: true
+          git-config-name: 'Github Actions'
+          git-config-email: '<>'
