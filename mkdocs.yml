@@ -19,6 +19,7 @@ nav:
           - 1.17.x/config/inventory.md
           - 1.17.x/config/utility.md
       - 1.17.x/compat.md
+      - 1.17.x/api.md
 
 site_name: SkyblockBuilder Wiki
 site_url: https://melanx.github.io/SkyblockBuilder/
