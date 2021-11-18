@@ -11,7 +11,10 @@ If this option is selected, the users inventory will be dropped when leaving a t
 ## Starting inventory
 You can set a starting inventory by customising `config/skyblockbuilder/starter_items.json`. These items will be given to 
 the player only on initial joining world, not when joining a team. You can also set the items to a special slot with key
-Slot.
+`Slot`.
+
+You could also just export your inventory by using the command `/skyblock inventory export`. This will create a new file
+in the `skyblock_exports` folder with the current inventory and the correct slot.
 
 Available values for the slots are:
 
