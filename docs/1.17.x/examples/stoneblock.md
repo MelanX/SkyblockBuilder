@@ -6,15 +6,7 @@ To create a stoneblock like modpack, you can simply set the surface settings as 
 
 `config/skyblockbuilder/common-config.json5`:
 ```json
-{
-  "Inventory": {
-    "clearInv": true
-  },
-  
-  "Utility": {
-    "createOwnTeam": true
-  },
-  
+{  
   "World": {
     "surface": true,
     "surfaceSettings": {
