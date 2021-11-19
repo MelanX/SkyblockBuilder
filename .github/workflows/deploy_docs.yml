@@ -10,12 +10,22 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 'Install'
-        run: sudo apt-get install -y python3 python3-pip
+        run: sudo apt-get install -y python3 python3-pip optipng
 
       - name: 'Configure'
         run: pip3 install mkdocs==1.2.3 mkdocs-material==7.3.6
 
-      - name: 'Build'
+      - name: 'Optimize Images'
+        run: |
+          find . -name "*.png" -exec optipng -o7 {} \;
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        name: 'Push images'
+        with:
+          commit_message: 'Optimize images'
+          commit_user_email: 'info@melanx.de'
+
+      - name: 'Build Wiki'
         run: mkdocs build -d build_site
 
       - name: 'Deploy'
@@ -25,4 +35,4 @@ jobs:
           folder: 'build_site'
           clean: true
           git-config-name: 'Github Actions'
-          git-config-email: '<>'
+          git-config-email: 'info@melanx.de'
