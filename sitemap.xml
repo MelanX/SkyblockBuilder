@@ -51,6 +51,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://melanx.github.io/SkyblockBuilder/1.17.x/examples/seablock/</loc>
+         <lastmod>2021-11-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://melanx.github.io/SkyblockBuilder/1.17.x/examples/skyblock/</loc>
          <lastmod>2021-11-19</lastmod>
          <changefreq>daily</changefreq>
