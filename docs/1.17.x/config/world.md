@@ -27,6 +27,8 @@ multiplier to change these values. Look [here 🔗](https://minecraft.fandom.com
 Minimal spacing will be set to 1 if the modifier changes it to be lower than that.
 Minimal separation will be set to 0 if the modifier changes it to be lower than that.
 
+**This config option needs a full restart once you already joined a world.**
+
 ## Surface
 The block settings for generating the different dimensions surfaces. It's in the same format as 
 [flat world generation settings 🔗](https://minecraft.fandom.com/wiki/Superflat#Preset_code_format), but will ignore
