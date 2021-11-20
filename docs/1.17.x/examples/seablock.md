@@ -1,7 +1,7 @@
 # Seablock
 
 ![Starting template](../../assets/examples/seablock/start_template.png)
-_[Download](https://github.com/MelanX/SkyblockBuilder/raw/gh-pages/assets/examples/downloads/seablock.zip)_
+_[Download](https://github.com/MelanX/SkyblockBuilder/raw/gh-pages/assets/examples/downloads/1.17.x/seablock.zip)_
 
 To create a seablock like modpack, you can simply set the surface settings as you can see in the config below.
 

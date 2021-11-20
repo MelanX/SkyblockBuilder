@@ -15,7 +15,7 @@ as before: position is optional. For users with permission level 2: `/skyblock t
 spawn points to the default ones. To add the spawns, you need to be within the range specified in the config.
 
 ## Teleporting back to home island
-If home command is enabled in the config, you can teleport back to your teams island with `/skyblock home`.
+If home command is enabled in the config, you can teleport back to your teams' island with `/skyblock home`.
 
 ## Teleporting to spawn island
 If teleporting to spawn is enabled in the config, you can teleport to spawn island with `/skyblock spawn`.
