@@ -1,6 +1,6 @@
 # Managing teams
 ## Operators only
-Only an operator with permission level 2 or higher can change anything in the /skyblock manage category.
+Only an operator with permission level 2 or higher can change anything in the `/skyblock manage` category.
 
 ## Creating teams
 Use the `/skyblock manage teams create <name>` command to generate a team with the given name. If no name is provided, 

@@ -72,6 +72,10 @@ Now the `templates`:
 - The `spawns` is the spawn configuration name from the `spawns` option.
 You can have the same file and the same spawns in multiple configurations. They all are only seperated by the name.
 
+**NOTE**: If you spawn inside a block, you could add this block to the 
+[block tag 🔗](https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack#Tags) 
+`#skyblockbuilder:additional_valid_spawns`.
+
 ## Loot chests on island
 If you want a loot chest on an island, you need to set the NBT data to the chest with the `/data merge block <x y z>
 {LootTable: modid:path/to/loot_table}` command to set it as loot chest.
