@@ -1,21 +1,22 @@
 # Hellblock
 
 ![Starting template](../../assets/examples/hellblock/start_template.png)
-_[Download](https://github.com/MelanX/SkyblockBuilder/raw/gh-pages/assets/examples/downloads/1.17.x/hellblock.zip)_
+_[Download](https://github.com/MelanX/SkyblockBuilder/raw/gh-pages/assets/examples/downloads/1.16.x/hellblock.zip)_
 
-To create a hellblock like modpack, you can simply set the spawn dimension to `the_nether` as you can see in
+To create a hellblock like modpack, you can simply set the spawn dimension to `minecraft:the_nether` as you can see in
 the config below.
 
 `config/skyblockbuilder/common.config.json5`:
 ```json
 {
   "Spawn": {
-    "dimension": "the_nether"
+    "dimension": "minecraft:the_nether"
   }
 }
 ```
 
-This world will have a default overworld and a default end. The nether is "sky" and is filled with 10 layers of lava.
+This world will have a default overworld and a default end. The nether is "sky". The image shows lava layers below the
+island but that's implemented in 1.17.1 and the image was made with this newer version. That means: no custom surface.
 I also added some structures for the nether. Because overworld is default, we don't have to care about the overworld
 structures and can just ignore them. They will be generated as normal.
 
