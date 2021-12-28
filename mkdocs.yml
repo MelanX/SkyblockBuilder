@@ -47,6 +47,30 @@ nav:
       - 1.17.x/compat.md
       - 1.17.x/api.md
       - 1.17.x/1.16.x_to_1.17.x.md
+  - 1.18.x:
+      - Modpack Creator:
+          - 1.18.x/packdev/packdev.md
+          - 1.18.x/packdev/admin.md
+      - End User:
+          - 1.18.x/user/user.md
+          - 1.18.x/user/join-team.md
+          - 1.18.x/user/invitations.md
+          - 1.18.x/user/visiting.md
+      - Config:
+          - 1.18.x/config/structures.md
+          - 1.18.x/config/dimensions.md
+          - 1.18.x/config/world.md
+          - 1.18.x/config/spawn.md
+          - 1.18.x/config/inventory.md
+          - 1.18.x/config/utility.md
+      - Examples:
+          - 1.18.x/examples/skyblock.md
+          - 1.18.x/examples/stoneblock.md
+          - 1.18.x/examples/seablock.md
+          - 1.18.x/examples/hellblock.md
+      - 1.18.x/compat.md
+      - 1.18.x/api.md
+      - 1.18.x/1.17.x_to_1.18.x.md
 
 site_name: SkyblockBuilder Wiki
 site_url: https://melanx.github.io/SkyblockBuilder/
@@ -66,10 +90,11 @@ theme:
   favicon: assets/logo.png
 
 extra:
-  current_version: 1.17.x
+  current_version: 1.18.x
   versions:
     1.16.x: 1.16.x
     1.17.x: 1.17.x
+    1.18.x: 1.18.x
 
 markdown_extensions:
   - codehilite:
