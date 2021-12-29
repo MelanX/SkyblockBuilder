@@ -1379,6 +1379,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dynamic-height" class="md-nav__link">
+    Dynamic height
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#radius" class="md-nav__link">
     Radius
   </a>
@@ -1615,6 +1622,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dynamic-height" class="md-nav__link">
+    Dynamic height
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#radius" class="md-nav__link">
     Radius
   </a>
@@ -1641,12 +1655,8 @@
                 <h1 id="spawn">Spawn</h1>
 <h2 id="dimension">Dimension</h2>
 <p>This sets the dimension where you will spawn and the island be generated.</p>
-<p>Allowed values:</p>
-<ul>
-<li><code>overworld</code></li>
-<li><code>the_nether</code></li>
-<li><code>the_end</code></li>
-</ul>
+<p>This can be any dimension found in <code>config/skyblockbuilder/data/dimensions.txt</code>. This file will <strong>only</strong> be generated
+when joining a skyblock world.</p>
 <h2 id="direction">Direction</h2>
 <p>This sets the direction in which the user will be looking at.</p>
 <p>Allowed values:</p>
@@ -1660,6 +1670,9 @@
 <p>This sets the bottom layer of the template.</p>
 <p>This affects where exactly the island will be generated.</p>
 <p>Would be smart to choose a value within the world height (default -64 and 319)</p>
+<h2 id="dynamic-height">Dynamic height</h2>
+<p>If this config option is enabled, the height will be based on the internal dimension surface height.</p>
+<p>This is <strong>only</strong> be used if the spawn dimension is set to <a href="#dimension">default</a>.</p>
 <h2 id="radius">Radius</h2>
 <p>The radius to find a valid spawn if no given spawn point is valid.</p>
 <p>Minimum: 0</p>
