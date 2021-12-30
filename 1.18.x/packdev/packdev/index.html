@@ -1671,8 +1671,8 @@
 <p>You simply start the game once. It will generate a config called <code>forge-common.toml</code>. Change the only value in this
 config to <code>skyblockbuilder:skyblock</code>, or use this example and create a file called <code>forge-common.toml</code> in the
 config directory with this content:
-<div class="highlight"><pre><span></span><code><span class="k">[general]</span>
-    <span class="n">defaultWorldType</span> <span class="o">=</span> <span class="s">&quot;skyblockbuilder:skyblock&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">[general]</span><span class="w"></span>
+<span class="w">    </span><span class="n">defaultWorldType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;skyblockbuilder:skyblock&quot;</span><span class="w"></span>
 </code></pre></div></p>
 <h2 id="setting-world-type-on-server-as-default">Setting world type on server as default</h2>
 <p>If you want to provide a custom <code>server.properties</code> file, set the <code>level-type</code> to <code>skyblockbuilder:skyblock</code>.
@@ -1703,13 +1703,13 @@ use by pressing the <code>Customize</code> button in world options screen or cha
 <p>As described in <a href="#creating-a-custom-skyblock-island">Creating a custom skyblock island</a>, you can improve the readability
 of templates and set the spawn points for each template in the config here: <code>config/skyblockbuilder/templates.json5</code>.
 There you have 2 options. First the <code>spawns</code>:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-   <span class="nt">&quot;spawns&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="p">[</span>
-         <span class="p">[</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span>
-      <span class="p">]</span>
-   <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;spawns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">         </span><span class="p">[</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 This option holds multiple objects. The key (here <code>default</code>) is important for the <code>templates</code> option in the next step.
 You can have multiple entries, but keep in mind that <strong>no key</strong> can be used twice! The content of each object is an
@@ -1717,15 +1717,15 @@ array. This array contains the spawn positions. The spawn positions are formatte
 <div class="highlight"><pre><span></span><code>[ x, y, z ]
 </code></pre></div></p>
 <p>Now the <code>templates</code>:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-   <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;default.nbt&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;spawns&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;templates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default.nbt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;spawns&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <ul>
 <li>The <code>name</code> is the name displayed in the <code>Customize</code> screen when selecting the world-type.</li>

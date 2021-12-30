@@ -1376,12 +1376,25 @@
     Height
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dynamic-height" class="md-nav__link">
-    Dynamic height
+    <nav class="md-nav" aria-label="Height">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    Range
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    Type
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1619,12 +1632,25 @@
     Height
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dynamic-height" class="md-nav__link">
-    Dynamic height
+    <nav class="md-nav" aria-label="Height">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    Range
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    Type
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1667,12 +1693,20 @@ when joining a skyblock world.</p>
 <li><code>west</code></li>
 </ul>
 <h2 id="height">Height</h2>
-<p>This sets the bottom layer of the template.</p>
-<p>This affects where exactly the island will be generated.</p>
-<p>Would be smart to choose a value within the world height (default -64 and 319)</p>
-<h2 id="dynamic-height">Dynamic height</h2>
-<p>If this config option is enabled, the height will be based on the internal dimension surface height.</p>
-<p>This is <strong>only</strong> be used if the spawn dimension is set to <a href="#dimension">default</a>.</p>
+<h3 id="range">Range</h3>
+<p>You can set a range from <code>minY</code> to <code>maxY</code>. <code>minY</code> is the bottom spawn position. <code>maxY</code> is the top spawn dimension.
+If you set the <a href="#type">spawn height type</a> (see below) to <code>set</code>, the bottom value will be used for a set height.
+Otherwise, the height will be calculated.</p>
+<h3 id="type">Type</h3>
+<p><code>set</code>: This is a fixed spawn position. For users of the older versions of skyblock builder, this is the normal mode as
+before. It will use the <code>bottom</code> value of the <a href="#range">range</a> as fixed height. The <code>top</code> value will be ignored.</p>
+<p><code>range_top</code>: This will search for a valid position beginning at the <code>top</code> position, down to the <code>bottom</code>. If no valid
+spawn was found, it uses the <code>top</code> value as fixed height.</p>
+<p><code>range_bottom</code>: Same as <code>range_top</code>. The only difference is that it uses the <code>bottom</code> value as fixed height if there was
+no valid spawn found.</p>
+<p>Valid spawns are defined as: Two block air on top of each other. Under that, it's a normal block/slab, or block inside
+the valid spawn <a href="https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack#Tags">block tag 🔗</a>
+<code>#skyblockbuilder:additional_valid_spawns</code>.</p>
 <h2 id="radius">Radius</h2>
 <p>The radius to find a valid spawn if no given spawn point is valid.</p>
 <p>Minimum: 0</p>
