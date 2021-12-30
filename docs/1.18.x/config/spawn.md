@@ -16,16 +16,24 @@ Allowed values:
 - `west`
 
 ## Height
-This sets the bottom layer of the template.
+### Range
+You can set a range from `minY` to `maxY`. `minY` is the bottom spawn position. `maxY` is the top spawn dimension.
+If you set the [spawn height type](#type) (see below) to `set`, the bottom value will be used for a set height.
+Otherwise, the height will be calculated.
 
-This affects where exactly the island will be generated.
+### Type
+`set`: This is a fixed spawn position. For users of the older versions of skyblock builder, this is the normal mode as
+before. It will use the `bottom` value of the [range](#range) as fixed height. The `top` value will be ignored.
 
-Would be smart to choose a value within the world height (default -64 and 319)
+`range_top`: This will search for a valid position beginning at the `top` position, down to the `bottom`. If no valid
+spawn was found, it uses the `top` value as fixed height.
 
-## Dynamic height
-If this config option is enabled, the height will be based on the internal dimension surface height.
+`range_bottom`: Same as `range_top`. The only difference is that it uses the `bottom` value as fixed height if there was
+no valid spawn found.
 
-This is **only** be used if the spawn dimension is set to [default](#dimension).
+Valid spawns are defined as: Two block air on top of each other. Under that, it's a normal block/slab, or block inside
+the valid spawn [block tag 🔗](https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack#Tags)
+`#skyblockbuilder:additional_valid_spawns`.
 
 ## Radius
 The radius to find a valid spawn if no given spawn point is valid.
