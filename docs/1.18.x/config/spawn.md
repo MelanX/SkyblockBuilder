@@ -35,6 +35,10 @@ Valid spawns are defined as: Two block air on top of each other. Under that, it'
 the valid spawn [block tag 🔗](https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack#Tags)
 `#skyblockbuilder:additional_valid_spawns`.
 
+### Offset
+If the spawn height type is set to `range`, this offset will be used to slightly move the spawn height in any 
+direction. Negative values go down, positive values go up.
+
 ## Radius
 The radius to find a valid spawn if no given spawn point is valid.
 
