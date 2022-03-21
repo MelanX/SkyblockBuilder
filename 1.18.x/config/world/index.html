@@ -16,7 +16,7 @@
     
     
       
-        <title>World - SkyblockBuilder Wiki</title>
+        <title>World - Skyblock Builder Wiki</title>
       
     
     
@@ -80,7 +80,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="SkyblockBuilder Wiki" class="md-header__button md-logo" aria-label="SkyblockBuilder Wiki" data-md-component="logo">
+    <a href="../../.." title="Skyblock Builder Wiki" class="md-header__button md-logo" aria-label="Skyblock Builder Wiki" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
@@ -92,7 +92,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            SkyblockBuilder Wiki
+            Skyblock Builder Wiki
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -179,12 +179,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="SkyblockBuilder Wiki" class="md-nav__button md-logo" aria-label="SkyblockBuilder Wiki" data-md-component="logo">
+    <a href="../../.." title="Skyblock Builder Wiki" class="md-nav__button md-logo" aria-label="Skyblock Builder Wiki" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
     </a>
-    SkyblockBuilder Wiki
+    Skyblock Builder Wiki
   </label>
   
     <div class="md-nav__source">
@@ -1365,13 +1365,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#structure-modifier" class="md-nav__link">
-    Structure modifier
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#surface" class="md-nav__link">
     Surface
   </a>
@@ -1379,22 +1372,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#single-biome" class="md-nav__link">
-    Single biome
+  <a href="#biomes" class="md-nav__link">
+    Biomes
   </a>
-  
-    <nav class="md-nav" aria-label="Single biome">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#biome" class="md-nav__link">
-    Biome
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1656,13 +1636,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#structure-modifier" class="md-nav__link">
-    Structure modifier
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#surface" class="md-nav__link">
     Surface
   </a>
@@ -1670,22 +1643,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#single-biome" class="md-nav__link">
-    Single biome
+  <a href="#biomes" class="md-nav__link">
+    Biomes
   </a>
-  
-    <nav class="md-nav" aria-label="Single biome">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#biome" class="md-nav__link">
-    Biome
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1715,24 +1675,16 @@ divided by 8.</p>
 <h2 id="sea-height">Sea height</h2>
 <p>The sea level in the world. This has nothing to do with the water height in the world. This does affect the spawn height
 of squids for example.</p>
-<h2 id="structure-modifier">Structure modifier</h2>
-<p>The modifier for spacing and separation of structures. These values can be defined by a data pack. However, this is a
-multiplier to change these values. Look <a href="https://minecraft.fandom.com/wiki/Custom#Generator_types">here 🔗</a> at 
-<code>biome_source.structures.structures</code> for more information about that.</p>
-<p>Minimal spacing will be set to 1 if the modifier changes it to be lower than that.
-Minimal separation will be set to 0 if the modifier changes it to be lower than that.</p>
-<p><strong>This config option needs a full restart once you already joined a world.</strong></p>
 <h2 id="surface">Surface</h2>
 <p>The block settings for generating the different dimensions surfaces. It's in the same format as 
 <a href="https://minecraft.fandom.com/wiki/Superflat#Preset_code_format">flat world generation settings 🔗</a>, but will ignore
 the biome. You can set it for each dimension. Instead of removing the dimension from the list, just set it to an empty
 string to generate it completely void. If the surface is disabled, it will ignore the setting.</p>
-<h2 id="single-biome">Single biome</h2>
-<h3 id="biome">Biome</h3>
-<p>Specifies the biome for a whole dimension. A list with all possible structures can be found in 
-<code>config/skyblockbuilder/data/biomes.txt</code>. You can set the dimension you want. If you keep it as <code>null</code>, the 
-<a href="../spawn/#dimension">start dimension</a> will be used.</p>
-<p><strong>WARNING</strong>: Some structures need a special biome, e.g. Mansion needs Dark Oak Forest! These structures will not be generated if you have only one biome!</p>
+<h2 id="biomes">Biomes</h2>
+<p>It's a map which provides <a href="https://noeppi-noeppi.github.io/LibX/io/github/noeppi_noeppi/libx/util/ResourceList.html#use_resource_lists_in_configs">ResourceLists 🔗</a>.
+It's set to allow all biomes per default. You can deny biomes by adding them to the list. Setting <code>allow_list</code> to true
+will only use the biomes in the list. Keep in mind that each dimension needs at least one valid biome!</p>
+<p>A list with all possible structures can be found in <code>config/skyblockbuilder/data/biomes.txt</code>.</p>
                 
               
               
