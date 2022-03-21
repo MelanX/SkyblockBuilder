@@ -8,7 +8,7 @@ For more information about this, look
 You can call this in the main constructor of your mod.
 
 ## Custom Forge Events
-SkyblockBuilder fires several events which you can subscribe like normal Forge events.
+Skyblock Builder fires several events which you can subscribe like normal Forge events.
 These are all events:
 
 - [Create Team](https://github.com/MelanX/SkyblockBuilder/blob/1.16.x/src/main/java/de/melanx/skyblockbuilder/events/SkyblockCreateTeamEvent.java)

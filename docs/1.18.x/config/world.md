@@ -10,26 +10,15 @@ The offset from 0, 0 to generate the islands. Can be used to generate them in th
 The sea level in the world. This has nothing to do with the water height in the world. This does affect the spawn height
 of squids for example.
 
-## Structure modifier
-The modifier for spacing and separation of structures. These values can be defined by a data pack. However, this is a
-multiplier to change these values. Look [here 🔗](https://minecraft.fandom.com/wiki/Custom#Generator_types) at 
-`biome_source.structures.structures` for more information about that.
-
-Minimal spacing will be set to 1 if the modifier changes it to be lower than that.
-Minimal separation will be set to 0 if the modifier changes it to be lower than that.
-
-**This config option needs a full restart once you already joined a world.**
-
 ## Surface
 The block settings for generating the different dimensions surfaces. It's in the same format as 
 [flat world generation settings 🔗](https://minecraft.fandom.com/wiki/Superflat#Preset_code_format), but will ignore
 the biome. You can set it for each dimension. Instead of removing the dimension from the list, just set it to an empty
 string to generate it completely void. If the surface is disabled, it will ignore the setting.
 
-## Single biome
-### Biome
-Specifies the biome for a whole dimension. A list with all possible structures can be found in 
-`config/skyblockbuilder/data/biomes.txt`. You can set the dimension you want. If you keep it as `null`, the 
-[start dimension](spawn.md#dimension) will be used.
+## Biomes
+It's a map which provides [ResourceLists 🔗](https://noeppi-noeppi.github.io/LibX/io/github/noeppi_noeppi/libx/util/ResourceList.html#use_resource_lists_in_configs).
+It's set to allow all biomes per default. You can deny biomes by adding them to the list. Setting `allow_list` to true
+will only use the biomes in the list. Keep in mind that each dimension needs at least one valid biome!
 
-**WARNING**: Some structures need a special biome, e.g. Mansion needs Dark Oak Forest! These structures will not be generated if you have only one biome!
+A list with all possible structures can be found in `config/skyblockbuilder/data/biomes.txt`.

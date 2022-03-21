@@ -73,7 +73,7 @@ nav:
       - 1.18.x/1.17.x_to_1.18.x.md
       - 1.18.x/gui_addon.md
 
-site_name: SkyblockBuilder Wiki
+site_name: Skyblock Builder Wiki
 site_url: https://melanx.github.io/SkyblockBuilder/
 
 theme:

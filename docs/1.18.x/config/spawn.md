@@ -5,16 +5,6 @@ This sets the dimension where you will spawn and the island be generated.
 This can be any dimension found in `config/skyblockbuilder/data/dimensions.txt`. This file will **only** be generated
 when joining a skyblock world.
 
-## Direction
-This sets the direction in which the user will be looking at.
-
-Allowed values:
-
-- `north`
-- `east`
-- `south`
-- `west`
-
 ## Height
 ### Range
 You can set a range from `minY` to `maxY`. `minY` is the bottom spawn position. `maxY` is the top spawn dimension.
