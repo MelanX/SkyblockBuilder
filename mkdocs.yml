@@ -68,6 +68,7 @@ nav:
           - 1.18.x/examples/stoneblock.md
           - 1.18.x/examples/seablock.md
           - 1.18.x/examples/hellblock.md
+      - 1.18.x/world_types.md
       - 1.18.x/compat.md
       - 1.18.x/api.md
       - 1.18.x/1.17.x_to_1.18.x.md
