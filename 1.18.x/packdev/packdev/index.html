@@ -1533,6 +1533,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../world_types/" class="md-nav__link">
+        World Types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../compat/" class="md-nav__link">
         Compatability with other mods
       </a>
@@ -1729,7 +1743,8 @@ array. This array contains the spawn positions. The spawn positions are formatte
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">   </span><span class="nt">&quot;templates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Default template&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default.nbt&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;spawns&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;south&quot;</span><span class="w"></span>
@@ -1739,11 +1754,14 @@ array. This array contains the spawn positions. The spawn positions are formatte
 </code></pre></div></p>
 <ul>
 <li>The <code>name</code> is the name displayed in the <code>Customize</code> screen when selecting the world-type.</li>
+<li>The <code>desc</code> is the description displayed in the <code>Customize</code> screen when selecting the world-type.</li>
 <li>The <code>file</code> is the name of the file for that template.</li>
 <li>The <code>spawns</code> is the spawn configuration name from the <code>spawns</code> option.</li>
 <li>The <code>direction</code> is the direction the user should look at for this template. If not provided, it'll be <code>south</code>.
 You can have the same file and the same spawns in multiple configurations. They all are only seperated by the name.</li>
 </ul>
+<p>You can also set an icon for each template. This is located in <code>config/skyblockbuilder/templates/icon/&lt;name&gt;.png</code>. The
+name needs to be lowercase.</p>
 <p><strong>NOTE</strong>: If you spawn inside a block, you could add this block to the 
 <a href="https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack#Tags">block tag 🔗</a> 
 <code>#skyblockbuilder:additional_valid_spawns</code>.</p>
