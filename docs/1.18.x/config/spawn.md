@@ -1,4 +1,17 @@
 # Spawn
+## Spawn Protection Radius
+This sets the radius around the spawn which should be protected and only op players can interact with.
+This prevents (tool) interactions, mob griefing, explosions, breaking blocks, farmland trampling, growing crops, and
+attacking. Additionally, the player will always have max health, max food level, can't drown, and can't be set on fire.
+This is default set to 0, so nothing is protected. Look at the table here to see more options:
+
+| **3** | **3** | **3** | **3** | **3** |
+|-------|-------|-------|-------|-------|
+| **3** | **2** | **2** | **2** | **3** |
+| **3** | **2** | **1** | **2** | **3** |
+| **3** | **2** | **2** | **2** | **3** |
+| **3** | **3** | **3** | **3** | **3** |
+
 ## Dimension
 This sets the dimension where you will spawn and the island be generated.
 
