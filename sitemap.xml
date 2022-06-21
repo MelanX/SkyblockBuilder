@@ -311,6 +311,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://melanx.github.io/SkyblockBuilder/1.19.x/gui_addon/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://melanx.github.io/SkyblockBuilder/1.19.x/world_types/</loc>
          <lastmod>2022-06-21</lastmod>
          <changefreq>daily</changefreq>
