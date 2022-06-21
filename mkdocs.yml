@@ -98,6 +98,7 @@ nav:
       - 1.19.x/compat.md
       - 1.19.x/api.md
       - 1.19.x/1.18.x_to_1.19.x.md
+      - 1.19.x/gui_addon.md
 
 site_name: Skyblock Builder Wiki
 site_url: https://melanx.github.io/SkyblockBuilder/
