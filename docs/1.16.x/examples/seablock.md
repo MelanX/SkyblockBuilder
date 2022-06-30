@@ -5,7 +5,7 @@ _[Download](https://github.com/MelanX/SkyblockBuilder/raw/gh-pages/assets/exampl
 
 To create a seablock like modpack, you can simply set the surface settings as you can see in the config below.
 
-`config/skyblockbuilder/common.config.json5`:
+`config/skyblockbuilder/common-config.json5`:
 ```json
 {
   "World": {
