@@ -29,10 +29,10 @@ Otherwise, it's the same as in [single player](#setting-world-type-on-single-pla
 6. Repeat step 4 and 5 until everything is correct.
 
 ## Setting multiple templates
-You can set multiple schematics by putting them into `config/skyblockbuilder/templates/`. ~~These schematics can the user 
+You can set multiple schematics by putting them into `config/skyblockbuilder/templates/`. These schematics can the user 
 use by pressing the `Customize` button in world options screen or changing the schematic with command 
 `/skyblock manage islandShape <template>` where `<template>` is the name specified in 
-[next chapter](#configuring-templates).~~ Currently, not available
+[next chapter](#configuring-templates).
 
 ## Configuring templates
 As described in [Creating a custom skyblock island](#creating-a-custom-skyblock-island), you can improve the readability
@@ -69,8 +69,8 @@ Now the `templates`:
 }
 ```
 
-- The `name` is the name ~~displayed in the `Customize` screen when selecting the world-preset~~. Currently, not available.
-- The `desc` is the description ~~displayed in the `Customize` screen when selecting the world-type~~. Currently, not available.
+- The `name` is the name displayed in the `Customize` screen when selecting the world-preset.
+- The `desc` is the description displayed in the `Customize` screen when selecting the world-type.
 - The `file` is the name of the file for that template.
 - The `spawns` is the spawn configuration name from the `spawns` option.
 - The `direction` is the direction the user should look at for this template. If not provided, it'll be `south`.
