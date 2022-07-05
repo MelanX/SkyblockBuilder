@@ -2,7 +2,7 @@
 Skyblock Builder adds not only one world type, but also a second one!
 
 ## Skyblock
-The first world type is called **Skyblock**. It is a world where you can customize your the starting island.
+The first world type is called **Skyblock**. It is a world where you can customize the starting island.
 The config and all options are for this world type only.
 
 You can use this world type on servers or in `forge-common.toml` by using `skyblockbuilder:skyblock`.
