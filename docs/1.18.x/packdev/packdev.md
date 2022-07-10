@@ -28,6 +28,11 @@ Otherwise, it's the same as in [single player](#setting-world-type-on-single-pla
    the `/skyblock spawns true` command to view all possible spawn points.
 6. Repeat step 4 and 5 until everything is correct.
 
+## Setting a default spawn island
+You can set a default spawn island for new worlds by setting `spawn`. If it's set to `null`, it will use the default
+template used for new teams. For more information about the value for `spawn`, look at 
+[Configuring templates](#configuring-templates).
+
 ## Setting multiple templates
 You can set multiple schematics by putting them into `config/skyblockbuilder/templates/`. These schematics can the user 
 use by pressing the `Customize` button in world options screen or changing the schematic with command 
