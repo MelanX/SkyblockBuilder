@@ -93,3 +93,8 @@ If you want a loot chest on an island, you need to set the NBT data to the chest
 {LootTable: modid:path/to/loot_table}` command to set it as loot chest.
 
 **WARNING**! Do not open that chest after merging this data into the chest.
+
+## Convert existing templates from `.nbt` to `.snbt`
+You can convert existing templates from `.nbt` to `.snbt` files with the command `/skyblock templates_to_snbt`. This
+will convert all templates in the `config/skyblockbuilder/templates/` directory to `.snbt` files while keeping the
+original `.nbt` files.
