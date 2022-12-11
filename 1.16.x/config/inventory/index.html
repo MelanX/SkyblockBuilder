@@ -2128,22 +2128,22 @@ the player only on initial joining world, not when joining a team. You can also 
 <li><code>feet</code></li>
 </ul>
 <p>The config could look like this:
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;minecraft:diamond_pickaxe&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;nbt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;Unbreakable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;minecraft:bread&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;Slot&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;offhand&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div></p>
+<code>json
+{
+  "items": [
+    {
+      "item": "minecraft:diamond_pickaxe",
+      "nbt": {
+        "Unbreakable": true
+      }
+    },
+    {
+      "item": "minecraft:bread",
+      "count": 32,
+      "Slot": "offhand"
+    }
+  ]
+}</code></p>
 <p>If you want that every other item will be deleted, you can simply set the config option <code>inventory.clear</code> to true. This 
 will delete items like guide books or other things. That way, you don't have to go through all configs to enable these
 items and could just add them to the starter items.</p>

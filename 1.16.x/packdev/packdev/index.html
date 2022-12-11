@@ -2154,9 +2154,9 @@
 <p>You simply start the game once. It will generate a config called <code>forge-common.toml</code>. Change the only value in this
 config to <code>skyblockbuilder:custom_skyblock</code>, or use this example and create a file called <code>forge-common.toml</code> in the
 config directory with this content:
-<div class="highlight"><pre><span></span><code><span class="k">[general]</span><span class="w"></span>
-<span class="w">    </span><span class="n">defaultWorldType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;skyblockbuilder:custom_skyblock&quot;</span><span class="w"></span>
-</code></pre></div></p>
+<code>toml
+[general]
+    defaultWorldType = "skyblockbuilder:custom_skyblock"</code></p>
 <h2 id="setting-world-type-on-server-as-default">Setting world type on server as default</h2>
 <p>If you want to provide a custom <code>server.properties</code> file, set the <code>level-type</code> to <code>skyblockbuilder:custom_skyblock</code>.
 Otherwise, it's the same as in <a href="#setting-world-type-on-single-player-as-default">single player</a>.</p>

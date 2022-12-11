@@ -2039,12 +2039,12 @@
 <p>To create a hellblock like modpack, you can simply set the spawn dimension to <code>minecraft:the_nether</code> as you can see in
 the config below.</p>
 <p><code>config/skyblockbuilder/common-config.json5</code>:
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;Spawn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;dimension&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;minecraft:the_nether&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div></p>
+<code>json
+{
+  "Spawn": {
+    "dimension": "minecraft:the_nether"
+  }
+}</code></p>
 <p>This world will have a default overworld and a default end. The nether is "sky". The image shows lava layers below the
 island but that's implemented in 1.17.1 and the image was made with this newer version. That means: no custom surface.
 I also added some structures for the nether. Because overworld is default, we don't have to care about the overworld

@@ -1820,6 +1820,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#spawn-protection-events" class="md-nav__link">
+    Spawn Protection Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dimension" class="md-nav__link">
     Dimension
   </a>
@@ -2110,6 +2117,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#spawn-protection-events" class="md-nav__link">
+    Spawn Protection Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dimension" class="md-nav__link">
     Dimension
   </a>
@@ -2222,6 +2236,54 @@ This is default set to 0, so nothing is protected. Look at the table here to see
 </tr>
 </tbody>
 </table>
+<h2 id="spawn-protection-events">Spawn Protection Events</h2>
+<p>A list of event types which will be prevented.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>interact_entities</code></td>
+<td style="text-align: center;">Interacting with entities, e.g. riding a pig</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>interact_blocks</code></td>
+<td style="text-align: center;">Interacting with blocks, e.g. activating buttons, placing, or destroying blocks</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>mob_griefing</code></td>
+<td style="text-align: center;">Mobs destroying the world</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>explosions</code></td>
+<td style="text-align: center;">TNT, creeper, or other explosions</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>crop_grow</code></td>
+<td style="text-align: center;">Crops increasing their growth status</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>mobs_spawn</code></td>
+<td style="text-align: center;">Mobs spawning</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>mobs_spawn_egg</code></td>
+<td style="text-align: center;">Mobs being summoned using a spawn egg</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>damage</code></td>
+<td style="text-align: center;">Attacking others, or getting attacked</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>healing</code></td>
+<td style="text-align: center;">Getting healed and saturated on spawn</td>
+</tr>
+</tbody>
+</table>
 <h2 id="dimension">Dimension</h2>
 <p>This sets the dimension where you will spawn and the island be generated.</p>
 <p>This can be any dimension found in <code>config/skyblockbuilder/data/dimensions.txt</code>. This file will <strong>only</strong> be generated
@@ -2242,7 +2304,7 @@ no valid spawn found.</p>
 the valid spawn <a href="https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack#Tags">block tag 🔗</a>
 <code>#skyblockbuilder:additional_valid_spawns</code>.</p>
 <h3 id="offset">Offset</h3>
-<p>If the spawn height type is set to <code>range</code>, this offset will be used to slightly move the spawn height in any 
+<p>If the spawn height type is set to <code>range</code>, this offset will be used to slightly move the spawn height in any
 direction. Negative values go down, positive values go up.</p>
 <h2 id="radius">Radius</h2>
 <p>The radius to find a valid spawn if no given spawn point is valid.</p>
