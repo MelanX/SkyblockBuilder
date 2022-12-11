@@ -31,3 +31,8 @@ player.
 ### Spawn
 Allows the player to [teleport to the spawn island](../user/user.md#teleporting-to-spawn-island). Has a cooldown for 
 each player.
+
+### Cross dimension teleportation
+Allows the player to teleport (see above) from another dimension, for example the main world is overworld, players will
+be able to also teleport from the nether to the spawn, their island, or even visit others. Setting this to false forces
+them to be in the overworld (if that's the main dimension).
