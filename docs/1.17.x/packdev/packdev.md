@@ -21,12 +21,10 @@ Otherwise, it's the same as in [single player](#setting-world-type-on-single-pla
 3. Copy the generated file from its directory (see previous step) to `config/skyblockbuilder/templates/<name>.nbt`.
 4. [Configure the template with a better readable name and spawns](#configuring-templates) in 
    `config/skyblockbuilder/templates.json5`. There can be multiple spawns, each one is an array with `[x, y, z]` 
-   relative to the 0, 0, 0 from the template structure. You can also [modify existing spawns](../user/user.md#modify-spawns) and export
-   them with `/skyblock spawns EXPORT`.
+   relative to the 0, 0, 0 from the template structure. You can also 
+   [modify existing spawns](../user/user.md#modify-spawns) and export them with `/skyblock spawns EXPORT`.
    IMPORTANT: You need to be in a world with world-type `Skyblock` to use the commands.
-5. To view your current spawns, you need to use the `/reload` command to reload the config. After that, you need to use
-   the `/skyblock spawns true` command to view all possible spawn points.
-6. Repeat step 4 and 5 until everything is correct.
+5. To view your current spawns, you need to run `/skyblock spawns debug` to view all possible spawn points.
 
 ## Setting multiple templates
 You can set multiple schematics by putting them into `config/skyblockbuilder/templates/`. These schematics can the user 
