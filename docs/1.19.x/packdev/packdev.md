@@ -25,6 +25,8 @@ Otherwise, it's the same as in [single player](#setting-world-type-on-single-pla
    [modify existing spawns](../user/user.md#modify-spawns) and export them with `/skyblock spawns EXPORT`.
    IMPORTANT: You need to be in a world with world-type `Skyblock` to use the commands.
 5. To view your current spawns, you need to run `/skyblock spawns debug` to view all possible spawn points.
+6. To apply the new spawn points to your template, copy the exported spawn points (you need to open the file) into the
+   file `config/skyblockbuilder/templates.json5` where needed.
 
 ## Setting a default spawn island
 You can set a default spawn island for new worlds by setting `spawn`. If it's set to `null`, it will use the default

@@ -40,6 +40,7 @@ Possible spawns are set in `config/skyblockbuilder/spawns.json`. For each player
 and places the player on that position. Good on big islands when adding a lot of players at once at one team. You can
 also export your current spawn points with command `/skyblock spawns EXPORT`. For this, you should first
 [modify spawns](../user/user.md#modify-spawns). You will find your exported spawns in `skyblock_exports/spawns.json`. 
+Copy it in the main config folder and override the existing one to apply your new spawns.
 If you spawn inside a block, you could add this block to the 
 [block tag 🔗](https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack#Tags) 
 `#skyblockbuilder:additional_valid_spawns`.
