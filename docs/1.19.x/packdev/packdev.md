@@ -68,18 +68,23 @@ Now the `templates`:
       "desc": "Default template",
       "file": "default.nbt",
       "spawns": "default", 
-      "direction": "south"
+      "direction": "south", 
+      "offset": [ 0, 0 ]
     }
   ]
 }
 ```
 
 - The `name` is the name displayed in the `Customize` screen when selecting the world-preset.
-- The `desc` is the description displayed in the `Customize` screen when selecting the world-type.
+- The `desc` (optional - default "") is the description displayed in the `Customize` screen when selecting the world-type.
 - The `file` is the name of the file for that template.
 - The `spawns` is the spawn configuration name from the `spawns` option.
-- The `direction` is the direction the user should look at for this template. If not provided, it'll be `south`.
-You can have the same file and the same spawns in multiple configurations. They all are only seperated by the name.
+- The `direction` (optional - default "south") is the direction the user should look at for this template. If not 
+  provided, it'll be `south`.
+- The `offset` (optional - default [ 0, 0 ]) is the offset for this specific template. Read 
+  [here](../config/world.md#offset) more about the offset. This specific offset can also be set for x (first number) 
+  and z (second number) separately.
+You can have the same file and the same spawns in multiple configurations. They all are only separated by the name.
 
 You can also set an icon for each template. This is located in `config/skyblockbuilder/templates/icon/<name>.png`. The
 name needs to be lowercase.

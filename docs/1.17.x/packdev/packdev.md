@@ -70,7 +70,7 @@ Now the `templates`:
 - The `name` is the name displayed in the `Customize` screen when selecting the world-type.
 - The `file` is the name of the file for that template.
 - The `spawns` is the spawn configuration name from the `spawns` option.
-You can have the same file and the same spawns in multiple configurations. They all are only seperated by the name.
+You can have the same file and the same spawns in multiple configurations. They all are only separated by the name.
 
 **NOTE**: If you spawn inside a block, you could add this block to the 
 [block tag 🔗](https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack#Tags) 

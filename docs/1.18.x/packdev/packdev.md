@@ -79,7 +79,7 @@ Now the `templates`:
 - The `file` is the name of the file for that template.
 - The `spawns` is the spawn configuration name from the `spawns` option.
 - The `direction` is the direction the user should look at for this template. If not provided, it'll be `south`.
-You can have the same file and the same spawns in multiple configurations. They all are only seperated by the name.
+You can have the same file and the same spawns in multiple configurations. They all are only separated by the name.
 
 You can also set an icon for each template. This is located in `config/skyblockbuilder/templates/icon/<name>.png`. The
 name needs to be lowercase.
