@@ -17,7 +17,7 @@ the biome. You can set it for each dimension. Instead of removing the dimension 
 string to generate it completely void. If the surface is disabled, it will ignore the setting.
 
 ## Biomes
-It's a map which provides [ResourceLists 🔗](https://noeppi-noeppi.github.io/LibX/io/github/noeppi_noeppi/libx/util/ResourceList.html#use_resource_lists_in_configs).
+It's a map which provides [ResourceLists 🔗](https://moddingx.org/libx/org/moddingx/libx/util/data/ResourceList.html#use_resource_lists_in_configs).
 It's set to allow all biomes per default. You can deny biomes by adding them to the list. Setting `allow_list` to true
 will only use the biomes in the list. Keep in mind that each dimension needs at least one valid biome!
 
