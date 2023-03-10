@@ -4,7 +4,7 @@ You can use the API to disable team management without the config needs to be ch
 that players will be teleported to spawn when joining the world.
 
 For more information about this, look
-[here](https://github.com/MelanX/SkyblockBuilder/blob/1.16.x/src/main/java/de/melanx/skyblockbuilder/util/CompatHelper.java).
+[here 🔗](https://github.com/MelanX/SkyblockBuilder/blob/1.16.x/src/main/java/de/melanx/skyblockbuilder/util/CompatHelper.java).
 You can call this in the main constructor of your mod.
 
 ## Custom Forge Events

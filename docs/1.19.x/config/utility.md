@@ -41,4 +41,4 @@ them to be in the overworld (if that's the main dimension).
 A list of dimensions where you can't use teleportation commands. If you set `allow_list` to true, these commands are
 allowed in these dimensions only.
 
-This is a resource list. Read more about it [here](https://moddingx.org/libx/org/moddingx/libx/util/data/ResourceList.html#use_resource_lists_in_configs).
+This is a resource list. Read more about it [here 🔗](https://moddingx.org/libx/org/moddingx/libx/util/data/ResourceList.html#use_resource_lists_in_configs).
