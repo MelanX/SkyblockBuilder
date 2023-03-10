@@ -36,3 +36,9 @@ each player.
 Allows the player to teleport (see above) from another dimension, for example the main world is overworld, players will
 be able to also teleport from the nether to the spawn, their island, or even visit others. Setting this to false forces
 them to be in the overworld (if that's the main dimension).
+
+### Dimension teleportation permission
+A list of dimensions where you can't use teleportation commands. If you set `allow_list` to true, these commands are
+allowed in these dimensions only.
+
+This is a resource list. Read more about it [here](https://noeppi-noeppi.github.io/LibX/io/github/noeppi_noeppi/libx/util/ResourceList.html#use_resource_lists_in_configs).
