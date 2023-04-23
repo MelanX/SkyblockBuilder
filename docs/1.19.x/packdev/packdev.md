@@ -42,7 +42,7 @@ use by pressing the `Customize` button in world options screen or changing the s
 ## Configuring templates
 As described in [Creating a custom skyblock island](#creating-a-custom-skyblock-island), you can improve the readability
 of templates and set the spawn points for each template in the config here: `config/skyblockbuilder/templates.json5`.
-There you have 2 options. First the `spawns`:
+There you have 4 options. First the `spawns`:
 ```json
 {
    "spawns": {
@@ -52,12 +52,28 @@ There you have 2 options. First the `spawns`:
    }
 }
 ```
-This option holds multiple objects. The key (here `default`) is important for the `templates` option in the next step.
+This option holds multiple objects. The key (here `default`) is important for the `templates` option in a next step.
 You can have multiple entries, but keep in mind that **no key** can be used twice! The content of each object is an
 array. This array contains the spawn positions. The spawn positions are formatted this way:
 ```
 [ x, y, z ]
 ```
+
+Second, the `surroundingBlocks`:
+```json
+{
+  "surroundingBlocks": {
+    "default": [
+      "minecraft:stone",
+      "minecraft:bedrock"
+    ]
+  }
+}
+```
+This options holds multiple objects. The key (here `default`) is important for the `templates` option in the next step.
+You can have multiple entries, but keep in mind that **no key** can be used twice! The content of each object is an
+array of resource locations for blocks. These blocks will be used to surround the template with these blocks, randomly
+selected. Look at the `surroundingMargin` in the next step for thickness.
 
 Now the `templates`:
 ```json
@@ -69,7 +85,10 @@ Now the `templates`:
       "file": "default.nbt",
       "spawns": "default", 
       "direction": "south", 
-      "offset": [ 0, 0 ]
+      "offset": [ 0, 0 ],
+      "offsetY": 0,
+      "surroundingBlocks": "default",
+      "surroundingMargin": 0
     }
   ]
 }
@@ -84,6 +103,11 @@ Now the `templates`:
 - The `offset` (optional - default [ 0, 0 ]) is the offset for this specific template. Read 
   [here](../config/world.md#offset) more about the offset. This specific offset can also be set for x (first number) 
   and z (second number) separately.
+- The `offsetY` (optional - default 0) is the offset for this specific Y orientation. Will be merged into `offset` in
+  1.20 onwards.
+- The `surroundingBlocks` (optional - default "") is the surrounding blocks configuration name from the 
+  `surroundingBlocks` option.
+- The `surroundingMargin` (optional - default 0) is the thickness for the border.
 You can have the same file and the same spawns in multiple configurations. They all are only separated by the name.
 
 You can also set an icon for each template. This is located in `config/skyblockbuilder/templates/icon/<name>.png`. The
