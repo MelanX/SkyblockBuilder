@@ -15,7 +15,7 @@ nav:
           - 1.16.x/config/world.md
           - 1.16.x/config/spawn.md
           - 1.16.x/config/inventory.md
-          - 1.16.x/config/permissions.md
+          - 1.16.x/config/utility.md
       - Examples:
           - 1.16.x/examples/skyblock.md
           - 1.16.x/examples/stoneblock.md
@@ -38,7 +38,7 @@ nav:
           - 1.17.x/config/world.md
           - 1.17.x/config/spawn.md
           - 1.17.x/config/inventory.md
-          - 1.17.x/config/permissions.md
+          - 1.17.x/config/utility.md
       - Examples:
           - 1.17.x/examples/skyblock.md
           - 1.17.x/examples/stoneblock.md
@@ -62,7 +62,7 @@ nav:
           - 1.18.x/config/world.md
           - 1.18.x/config/spawn.md
           - 1.18.x/config/inventory.md
-          - 1.18.x/config/permissions.md
+          - 1.18.x/config/utility.md
       - Examples:
           - 1.18.x/examples/skyblock.md
           - 1.18.x/examples/stoneblock.md
@@ -88,7 +88,7 @@ nav:
           - 1.19.x/config/world.md
           - 1.19.x/config/spawn.md
           - 1.19.x/config/inventory.md
-          - 1.19.x/config/permissions.md
+          - 1.19.x/config/utility.md
       - Examples:
           - 1.19.x/examples/skyblock.md
           - 1.19.x/examples/stoneblock.md
@@ -97,7 +97,7 @@ nav:
       - 1.19.x/world_types.md
       - 1.19.x/compat.md
       - 1.19.x/api.md
-      - 1.19.x/1.19.x_to_1.20.x.md
+      - 1.19.x/1.18.x_to_1.19.x.md
       - 1.19.x/gui_addon.md
   - 1.20.x:
       - Modpack Creator:
