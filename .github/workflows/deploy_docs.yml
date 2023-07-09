@@ -28,6 +28,9 @@ jobs:
       - name: 'Build Wiki'
         run: mkdocs build -d build_site
 
+      - name: 'Modify pages'
+        run: python modify_pages.py
+
       - name: 'Deploy'
         uses: 'JamesIves/github-pages-deploy-action@4.1.4'
         with:
