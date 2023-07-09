@@ -2,6 +2,109 @@
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script>
+    let isFileLoaded = false;
+    let dimensions, inventory, spawn, structures, permissions, world;
+    
+    function handleFile(file) {
+        const reader = new FileReader();
+    
+        reader.onload = function(e) {
+            const contents = e.target.result;
+            const cleanedContents = removeComments(contents);
+            const parsedContents = JSON.parse(cleanedContents);
+    
+            dimensions = parsedContents.Dimensions;
+            inventory = parsedContents.Inventory;
+            spawn = parsedContents.Spawn;
+            structures = parsedContents.Structures;
+            permissions = parsedContents.Utility;
+            world = parsedContents.World;
+    
+            isFileLoaded = true;
+            updateButtonState();
+        };
+    
+        reader.readAsText(file);
+    }
+    
+    function removeComments(contents) {
+        const lines = contents.split('\n');
+        const cleanedLines = [];
+    
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line.startsWith('//')) {
+                cleanedLines.push(line);
+            }
+        }
+    
+        return cleanedLines.join('\n');
+    }
+    
+    function createAndDownloadFiles() {
+        const zip = new JSZip();
+    
+        zip.file("dimensions.json5", JSON.stringify(dimensions));
+        zip.file("inventory.json5", JSON.stringify(inventory));
+        zip.file("spawn.json5", JSON.stringify(spawn));
+        zip.file("structures.json5", JSON.stringify(structures));
+        zip.file("permissions.json5", JSON.stringify(permissions));
+        zip.file("world.json5", JSON.stringify(world));
+    
+        zip.generateAsync({ type: "blob" }).then(function(content) {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(content);
+            link.download = "data.zip";
+            link.click();
+        });
+    }
+    
+    function handleDrop(event) {
+        event.preventDefault();
+        const file = event.dataTransfer.files[0];
+        handleFile(file);
+    }
+    
+    function handleDragOver(event) {
+        event.preventDefault();
+    }
+    
+    function updateButtonState() {
+        const button = document.getElementById("download-button");
+        button.disabled = !isFileLoaded;
+    }
+</script>
+<style>
+    #drop-area {
+        width: 300px;
+        height: 150px;
+        border: 2px dashed #ccc;
+        border-radius: 5px;
+        text-align: center;
+        padding: 25px;
+        font-size: 18px;
+    }
+
+    #download-button {
+        width: 165px;
+        font-size: 18px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 24px;
+        border-radius: 6px;
+        margin: 0px 67.5px;
+        cursor: pointer;
+    }
+
+    #download-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+</style>
+
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -2457,9 +2560,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Updating 1.19.x to 1.20.x
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Updating 1.19.x to 1.20.x
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#update-old-config" class="md-nav__link">
+    Update old config
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2506,6 +2640,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#update-old-config" class="md-nav__link">
+    Update old config
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2533,6 +2682,12 @@
 <li><code>world.json5</code> for <a href="../config/world/">world config</a> such as surface</li>
 <li>make <code>direction</code> in template config optional</li>
 </ul>
+<h2 id="update-old-config">Update old config</h2>
+<p>Use this tool to update your old <code>common-config.json5</code> to the new files.</p>
+<div id="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+<p>Drag & drop common-config.json5 file here</p>
+</div>
+<p><button id="download-button" disabled onclick="createAndDownloadFiles()">Download Files</button></p>
 
 
 
