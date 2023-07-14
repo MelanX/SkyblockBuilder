@@ -72,39 +72,151 @@ SCRIPT = """
         const button = document.getElementById("download-button");
         button.disabled = !isFileLoaded;
     }
+    
+    let isTemplatesFileLoaded = false;
+    let fileContent = {};
+
+    function handleTemplatesFile(file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const contents = e.target.result;
+            const cleanedContents = removeComments(contents);
+
+            const json = JSON.parse(cleanedContents);
+            const spawn = json.spawn;
+            const templates = json.templates;
+            const spawns = json.spawns;
+            const surroundingBlocks = json.surroundingBlocks;
+
+            const newSpawns = {}
+            Object.keys(spawns).forEach(function (key) {
+                let matchingTemplates = templates.filter(function (template) {
+                    return template.spawns === key;
+                });
+                const directions = []
+                matchingTemplates.forEach(function (template) {
+                    directions[template.direction] = template;
+                });
+                console.log(directions)
+                if (directions.length === 1) {
+                    newSpawns[key].push(spawns[key]);
+                } else {
+                    const allDirections = ['north', 'east', 'south', 'west'];
+                    Object.keys(directions).forEach(function (direction) {
+                        const obj = {};
+                        allDirections.forEach(function (dir) {
+                            if (dir === direction) {
+                                obj[dir] = spawns[key];
+                            } else {
+                                obj[dir] = [];
+                            }
+                            console.log(obj)
+                        });
+                        newSpawns[`${key}_${direction}`] = obj;
+                        directions[direction]['spawns'] = `${key}_${direction}`;
+                    });
+                }
+                console.log(JSON.stringify(newSpawns));
+            });
+
+            fileContent['spawns'] = newSpawns;
+
+            if (spawn !== null && spawn.offset) {
+                const offsetY = spawn.offsetY ? spawn.offsetY : 0;
+                spawn.offset = [spawn.offset[0], offsetY, spawn.offset[1]];
+                fileContent['spawn'] = spawn;
+            }
+
+            for (let i = 0; i < templates.length; i++) {
+                let template = templates[i];
+                if (template.offset) {
+                    const offsetY = template.offsetY ? template.offsetY : 0;
+                    template.offset = [template.offset[0], offsetY, template.offset[1]];
+                }
+                if (template.direction) {
+                    delete template.direction;
+                }
+            }
+            fileContent['templates'] = templates;
+
+            if (surroundingBlocks) {
+                fileContent['surroundingBlocks'] = surroundingBlocks;
+            }
+
+            console.log(JSON.stringify(fileContent));
+
+            isTemplatesFileLoaded = true;
+            updateTemplatesButtonState();
+        };
+
+        reader.readAsText(file);
+    }
+
+    function createAndDownloadTemplatesFile() {
+        let blob = new Blob([JSON.stringify(fileContent)]);
+
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = "templates.json5";
+        link.click();
+    }
+
+    function handleTemplatesDrop(event) {
+        event.preventDefault();
+        const file = event.dataTransfer.files[0];
+        handleTemplatesFile(file);
+    }
+
+    function handleDragOverTemplates(event) {
+        event.preventDefault();
+    }
+
+    function updateTemplatesButtonState() {
+        const button = document.getElementById("templates-download-button");
+        button.disabled = !isTemplatesFileLoaded;
+    }
 </script>
 <style>
-    #drop-area {
-        width: 300px;
+    .drop-area {
+        width: 250px;
         height: 150px;
         border: 2px dashed #ccc;
         border-radius: 5px;
         text-align: center;
         padding: 25px;
         font-size: 18px;
+        margin: 10px;
     }
 
-    #download-button {
+    .download-button {
         width: 165px;
         font-size: 18px;
         background-color: #4CAF50;
         color: white;
         padding: 10px 24px;
         border-radius: 6px;
-        margin: 0px 67.5px;
+        margin: 0px 77.5px;
         cursor: pointer;
     }
 
-    #download-button:disabled {
+    .download-button:disabled {
         opacity: 0.6;
         cursor: not-allowed;
+    }
+    
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
     }
 </style>
 """
 
 
 def main():
-    with open('build_site/1.20.x/1.19.x_to_1.20.x/index.html', 'r', encoding='utf-8') as f:
+    with open('site/1.20.x/1.19.x_to_1.20.x/index.html', 'r', encoding='utf-8') as f:
         file = f.read()
 
     lines = file.splitlines()
@@ -116,7 +228,7 @@ def main():
             newlines.append(SCRIPT)
             done = True
 
-    with open('build_site/1.20.x/1.19.x_to_1.20.x/index.html', 'w', encoding='utf-8') as f:
+    with open('site/1.20.x/1.19.x_to_1.20.x/index.html', 'w', encoding='utf-8') as f:
         for line in newlines:
             f.write(line + '\n')
 

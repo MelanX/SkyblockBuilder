@@ -6,7 +6,8 @@ The distance between two islands. If you choose `minecraft:the_nether` as [start
 divided by 8.
 
 ## Offset
-The offset from 0, 0 to generate the islands. Can be used to generate them in the middle of .mca files.
+The offset from 0, 0, 0 to generate the islands. Can be used to generate them in the middle of .mca files, or moving
+the island up/down. The value in the middle is you height, one and three is for x and z direction.
 
 ## Sea height
 The sea level in the world. This has nothing to do with the water height in the world. This does affect the spawn height
