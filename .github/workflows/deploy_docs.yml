@@ -41,6 +41,15 @@ jobs:
             fi
           done
 
+      - name: 'Save Cache'
+        uses: actions/cache/save@v3
+        with:
+          path: .image_cache
+          key: ${{ runner.os }}-image-cache-${{ hashFiles('**/*.png') }}
+
+      - name: 'Remove Cache'
+        run: rm -r .image_cache
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: 'Push images'
         with:
@@ -61,9 +70,3 @@ jobs:
           clean: true
           git-config-name: 'Github Actions'
           git-config-email: 'info@melanx.de'
-
-      - name: 'Save Cache'
-        uses: actions/cache/save@v3
-        with:
-          path: .image_cache
-          key: ${{ runner.os }}-image-cache-${{ hashFiles('**/*.png') }}
