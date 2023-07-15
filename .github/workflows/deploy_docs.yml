@@ -14,7 +14,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: .image_cache
-          key: ${{ runner.os }}-image-cache-${{ hashFiles('assets/**/*.png') }}
+          key: ${{ runner.os }}-image-cache-${{ hashFiles('docs/assets/**/*.png') }}
 
       - name: 'Install'
         run: sudo apt-get install -y python3 python3-pip optipng
@@ -46,7 +46,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: .image_cache
-          key: ${{ runner.os }}-image-cache-${{ hashFiles('assets/**/*.png') }}
+          key: ${{ runner.os }}-image-cache-${{ hashFiles('docs/assets/**/*.png') }}
 
       - name: 'Remove Cache'
         run: rm -r .image_cache
