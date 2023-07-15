@@ -9,13 +9,6 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v2
 
-      - name: 'Cache'
-        id: cache
-        uses: actions/cache/restore@v3
-        with:
-          path: .image_cache
-          key: ${{ runner.os }}-image-cache-${{ hashFiles('docs/assets/**/*.png') }}
-
       - name: 'Install'
         run: sudo apt-get install -y python3 python3-pip optipng
 
@@ -23,33 +16,7 @@ jobs:
         run: pip3 install mkdocs==1.4.2 mkdocs-material==9.1.2
 
       - name: 'Optimize Images'
-        run: |
-          find . -path "./.image_cache" -prune -o -name "*.png" -type f -print | while read -r file; do
-            cache_file="./.image_cache/${file#./}"
-            if [ "$file" -nt "$cache_file" ]; then
-              mkdir -p "$(dirname "$cache_file")"
-              echo "Optimizing $file"
-              optipng -o7 "$file"
-              cp "$file" "$cache_file"
-            fi
-          
-            if [ ! -f "$cache_file" ]; then
-              mkdir -p "$(dirname "$cache_file")"
-              echo "Adding $file to cache"
-              cp "$file" "$cache_file"
-            else
-              echo "Skipping $file (already optimized)"
-            fi
-          done
-
-      - name: 'Save Cache'
-        uses: actions/cache/save@v3
-        with:
-          path: .image_cache
-          key: ${{ runner.os }}-image-cache-${{ hashFiles('docs/assets/**/*.png') }}
-
-      - name: 'Remove Cache'
-        run: rm -r .image_cache
+        run: python scripts/optimize_images.py
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: 'Push images'
@@ -61,7 +28,7 @@ jobs:
         run: mkdocs build -d build_site
 
       - name: 'Modify pages'
-        run: python modify_pages.py
+        run: python scripts/modify_pages.py
 
       - name: 'Deploy'
         uses: 'JamesIves/github-pages-deploy-action@4.1.4'
