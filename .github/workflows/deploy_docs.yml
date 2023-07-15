@@ -28,8 +28,11 @@ jobs:
             cache_file="$RUNNER_WORKSPACE/.image_cache/${file#./}"
             if [ ! -f "$cache_file" ] || [ "$file" -nt "$cache_file" ]; then
               mkdir -p "$(dirname "$cache_file")"
+              echo "Optimizing $file"
               optipng -o7 "$file"
               cp "$file" "$cache_file"
+            else
+              echo "Skipping $file (already optimized)"
             fi
           done
 
