@@ -24,13 +24,15 @@ jobs:
 
       - name: 'Optimize Images'
         run: |
-          find . -name "*.png" -type f | while read -r file; do
-            cache_file="$RUNNER_WORKSPACE/.image_cache/${file#./}"
+          find . -path "./.image_cache" -prune -o -name "*.png" -type f -print | while read -r file; do
+            cache_file="./.image_cache/${file#./}"
             if [ ! -f "$cache_file" ]; then
               mkdir -p "$(dirname "$cache_file")"
               echo "Adding $file to cache"
               cp "$file" "$cache_file"
-            elif [ "$file" -nt "$cache_file" ]; then
+            fi
+
+            if [ "$file" -nt "$cache_file" ]; then
               echo "Optimizing $file"
               optipng -o7 "$file"
               cp "$file" "$cache_file"
