@@ -113,15 +113,15 @@
                     newSpawns[key]['south'] = spawns[key];
                     newSpawns[key]['west'] = [];
                 } else if (directionsCount === 1) {
+                    const obj = {};
                     allDirections.forEach(function (direction) {
-                        const obj = {};
                         if (direction === Object.keys(directions)[0]) {
                             obj[direction] = spawns[key];
                         } else {
                             obj[direction] = [];
                         }
                     });
-                    newSpawns[key][Object.keys(directions)[0]] = spawns[key];
+                    newSpawns[key] = obj;
                 } else {
                     Object.keys(directions).forEach(function (direction) {
                         const obj = {};
