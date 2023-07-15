@@ -92,16 +92,31 @@ SCRIPT = """
             const newSpawns = {}
             Object.keys(spawns).forEach(function (key) {
                 let matchingTemplates = templates.filter(function (template) {
-                    return template.spawns === key;
+                    return template.spawns === key && template.direction;
                 });
                 const directions = {}
                 matchingTemplates.forEach(function (template) {
                     directions[template.direction] = template;
                 });
-                if (directions.length === 0) {
-                    newSpawns[key][directions[0]] = spawns[key];
+                const directionsCount = Object.keys(directions).length;
+                const allDirections = ['north', 'east', 'south', 'west'];
+                newSpawns[key] = {};
+                if (directionsCount === 0) {
+                    newSpawns[key]['north'] = [];
+                    newSpawns[key]['east'] = [];
+                    newSpawns[key]['south'] = spawns[key];
+                    newSpawns[key]['west'] = [];
+                } else if (directionsCount === 1) {
+                    allDirections.forEach(function (direction) {
+                        const obj = {};
+                        if (direction === Object.keys(directions)[0]) {
+                            obj[direction] = spawns[key];
+                        } else {
+                            obj[direction] = [];
+                        }
+                    });
+                    newSpawns[key][Object.keys(directions)[0]] = spawns[key];
                 } else {
-                    const allDirections = ['north', 'east', 'south', 'west'];
                     Object.keys(directions).forEach(function (direction) {
                         const obj = {};
                         allDirections.forEach(function (dir) {
