@@ -27,6 +27,7 @@ jobs:
           find . -path "./.image_cache" -prune -o -name "*.png" -type f -print | while read -r file; do
             cache_file="./.image_cache/${file#./}"
             if [ "$file" -nt "$cache_file" ]; then
+              mkdir -p "$(dirname "$cache_file")"
               echo "Optimizing $file"
               optipng -o7 "$file"
               cp "$file" "$cache_file"
