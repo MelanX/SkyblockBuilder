@@ -211,7 +211,7 @@ SCRIPT = """
 
 
 def main():
-    with open('site/1.20.x/1.19.x_to_1.20.x/index.html', 'r', encoding='utf-8') as f:
+    with open('build_site/1.20.x/1.19.x_to_1.20.x/index.html', 'r', encoding='utf-8') as f:
         file = f.read()
 
     lines = file.splitlines()
@@ -223,7 +223,7 @@ def main():
             newlines.append(SCRIPT)
             done = True
 
-    with open('site/1.20.x/1.19.x_to_1.20.x/index.html', 'w', encoding='utf-8') as f:
+    with open('build_site/1.20.x/1.19.x_to_1.20.x/index.html', 'w', encoding='utf-8') as f:
         for line in newlines:
             f.write(line + '\n')
 
