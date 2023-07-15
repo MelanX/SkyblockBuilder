@@ -2711,15 +2711,21 @@ of templates and set the spawn points for each template in the config here: <cod
 There you have 4 options. First the <code>spawns</code>:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;spawns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">         </span><span class="p">[</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">]</span>
-<span class="w">      </span><span class="p">]</span>
+<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;east&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">&quot;west&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">&quot;north&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">&quot;south&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">[</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">]</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 This option holds multiple objects. The key (here <code>default</code>) is important for the <code>templates</code> option in a next step.
-You can have multiple entries, but keep in mind that <strong>no key</strong> can be used twice! The content of each object is an
-array. This array contains the spawn positions. The spawn positions are formatted this way:
+You can have multiple entries, but keep in mind that <strong>no key</strong> can be used twice! The content of each object are the
+four directions as keys. These include an array of arrays. This array contains the spawn positions. The spawn positions 
+are formatted this way:
 <div class="highlight"><pre><span></span><code>[ x, y, z ]
 </code></pre></div></p>
 <p>Second, the <code>surroundingBlocks</code>:
@@ -2740,13 +2746,11 @@ selected. Look at the <code>surroundingMargin</code> in the next step for thickn
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;templates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Default template&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default.nbt&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;spawns&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">      </span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;south&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">      </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">&quot;offsetY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;spawns&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">],</span>
 <span class="w">      </span><span class="nt">&quot;surroundingBlocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;surroundingMargin&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="p">}</span>
@@ -2760,11 +2764,9 @@ selected. Look at the <code>surroundingMargin</code> in the next step for thickn
 <li>The <code>spawns</code> is the spawn configuration name from the <code>spawns</code> option.</li>
 <li>The <code>direction</code> (optional - default "south") is the direction the user should look at for this template. If not 
   provided, it'll be <code>south</code>.</li>
-<li>The <code>offset</code> (optional - default [ 0, 0 ]) is the offset for this specific template. Read 
+<li>The <code>offset</code> (optional - default [ 0, 0, 0 ]) is the offset for this specific template. Read 
   <a href="../../config/world/#offset">here</a> more about the offset. This specific offset can also be set for x (first number) 
   and z (second number) separately.</li>
-<li>The <code>offsetY</code> (optional - default 0) is the offset for this specific Y orientation. Will be merged into <code>offset</code> in
-  1.20 onwards.</li>
 <li>The <code>surroundingBlocks</code> (optional - default "") is the surrounding blocks configuration name from the 
   <code>surroundingBlocks</code> option.</li>
 <li>The <code>surroundingMargin</code> (optional - default 0) is the thickness for the border.

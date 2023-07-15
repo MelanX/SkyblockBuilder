@@ -76,32 +76,139 @@
         const button = document.getElementById("download-button");
         button.disabled = !isFileLoaded;
     }
+    
+    let isTemplatesFileLoaded = false;
+    let fileContent = {};
+
+    function handleTemplatesFile(file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const contents = e.target.result;
+            const cleanedContents = removeComments(contents);
+
+            const json = JSON.parse(cleanedContents);
+            const spawn = json.spawn;
+            const templates = json.templates;
+            const spawns = json.spawns;
+            const surroundingBlocks = json.surroundingBlocks;
+
+            const newSpawns = {}
+            Object.keys(spawns).forEach(function (key) {
+                let matchingTemplates = templates.filter(function (template) {
+                    return template.spawns === key;
+                });
+                const directions = {}
+                matchingTemplates.forEach(function (template) {
+                    directions[template.direction] = template;
+                });
+                if (directions.length === 0) {
+                    newSpawns[key][directions[0]] = spawns[key];
+                } else {
+                    const allDirections = ['north', 'east', 'south', 'west'];
+                    Object.keys(directions).forEach(function (direction) {
+                        const obj = {};
+                        allDirections.forEach(function (dir) {
+                            if (dir === direction) {
+                                obj[dir] = spawns[key];
+                            } else {
+                                obj[dir] = [];
+                            }
+                        });
+                        newSpawns[`${key}_${direction}`] = obj;
+                        directions[direction]['spawns'] = `${key}_${direction}`;
+                    });
+                }
+            });
+
+            fileContent['spawns'] = newSpawns;
+
+            if (spawn && spawn.offset) {
+                const offsetY = spawn.offsetY ? spawn.offsetY : 0;
+                spawn.offset = [spawn.offset[0], offsetY, spawn.offset[1]];
+                fileContent['spawn'] = spawn;
+            }
+
+            for (let i = 0; i < templates.length; i++) {
+                let template = templates[i];
+                if (template.offset) {
+                    const offsetY = template.offsetY ? template.offsetY : 0;
+                    template.offset = [template.offset[0], offsetY, template.offset[1]];
+                }
+                if (template.direction) {
+                    delete template.direction;
+                }
+            }
+            fileContent['templates'] = templates;
+
+            if (surroundingBlocks) {
+                fileContent['surroundingBlocks'] = surroundingBlocks;
+            }
+
+            isTemplatesFileLoaded = true;
+            updateTemplatesButtonState();
+        };
+
+        reader.readAsText(file);
+    }
+
+    function createAndDownloadTemplatesFile() {
+        let blob = new Blob([JSON.stringify(fileContent)]);
+
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = "templates.json5";
+        link.click();
+    }
+
+    function handleTemplatesDrop(event) {
+        event.preventDefault();
+        const file = event.dataTransfer.files[0];
+        handleTemplatesFile(file);
+    }
+
+    function handleDragOverTemplates(event) {
+        event.preventDefault();
+    }
+
+    function updateTemplatesButtonState() {
+        const button = document.getElementById("templates-download-button");
+        button.disabled = !isTemplatesFileLoaded;
+    }
 </script>
 <style>
-    #drop-area {
-        width: 300px;
+    .drop-area {
+        width: 250px;
         height: 150px;
         border: 2px dashed #ccc;
         border-radius: 5px;
         text-align: center;
         padding: 25px;
         font-size: 18px;
+        margin: 10px;
     }
 
-    #download-button {
+    .download-button {
         width: 165px;
         font-size: 18px;
         background-color: #4CAF50;
         color: white;
         padding: 10px 24px;
         border-radius: 6px;
-        margin: 0px 67.5px;
+        margin: 0px 50px;
         cursor: pointer;
     }
 
-    #download-button:disabled {
+    .download-button:disabled {
         opacity: 0.6;
         cursor: not-allowed;
+    }
+    
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
     }
 </style>
 
@@ -2680,14 +2787,23 @@
 <li><code>spawn.json5</code> for <a href="../config/spawn/">spawn related things</a></li>
 <li><code>structures.json5</code> for <a href="../config/structures/">configuring structures and features</a></li>
 <li><code>world.json5</code> for <a href="../config/world/">world config</a> such as surface</li>
-<li>make <code>direction</code> in template config optional</li>
+<li>remove <code>direction</code> in template config and move to <code>spawns</code></li>
 </ul>
 <h2 id="update-old-config">Update old config</h2>
 <p>Use this tool to update your old <code>common-config.json5</code> to the new files.</p>
-<div id="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+<div class="container">
+<div class="drop-area" id="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
 <p>Drag & drop common-config.json5 file here</p>
 </div>
-<p><button id="download-button" disabled onclick="createAndDownloadFiles()">Download Files</button></p>
+<div class="drop-area" id="templates-drop-area" ondrop="handleTemplatesDrop(event)" ondragover="handleDragOverTemplates(event)">
+    <p>Drag &amp; drop templates.json5 file here</p>
+</div>
+</div>
+
+<div class="container">
+<button class="download-button" id="download-button" disabled onclick="createAndDownloadFiles()">Download Files</button>
+<button class="download-button" id="templates-download-button" disabled onclick="createAndDownloadTemplatesFile()">Download File</button>
+</div>
 
 
 
