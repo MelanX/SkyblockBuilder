@@ -9,6 +9,13 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v2
 
+      - name: 'Cache'
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: .image_cache
+          key: ${{ runner.os }}-image-cache-${{ hashFiles('**/*.png') }}
+
       - name: 'Install'
         run: sudo apt-get install -y python3 python3-pip optipng
 
@@ -17,7 +24,12 @@ jobs:
 
       - name: 'Optimize Images'
         run: |
-          find . -name "*.png" -exec optipng -o7 {} \;
+          find . -name "*.png" -type f | while read -r file; do
+            if [ ! -f "$RUNNER_WORKSPACE/.image_cache/$file" ] || [ "$file" -nt "$RUNNER_WORKSPACE/.image_cache/$file" ]; then
+              optipng -o7 "$file"
+              cp "$file" "$RUNNER_WORKSPACE/.image_cache/$file"
+            fi
+          done
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: 'Push images'
@@ -39,3 +51,9 @@ jobs:
           clean: true
           git-config-name: 'Github Actions'
           git-config-email: 'info@melanx.de'
+
+      - name: 'Save Cache'
+        uses: actions/cache@v2
+        with:
+          path: .image_cache
+          key: ${{ runner.os }}-image-cache-${{ hashFiles('**/*.png') }}
