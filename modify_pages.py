@@ -55,6 +55,8 @@ SCRIPT = """
             link.href = URL.createObjectURL(content);
             link.download = "data.zip";
             link.click();
+            isFileLoaded = false;
+            updateButtonState();
         });
     }
     
@@ -170,6 +172,8 @@ SCRIPT = """
         link.href = URL.createObjectURL(blob);
         link.download = "templates.json5";
         link.click();
+        isTemplatesFileLoaded = false;
+        updateTemplatesButtonState();
     }
 
     function handleTemplatesDrop(event) {
