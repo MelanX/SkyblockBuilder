@@ -94,13 +94,12 @@ SCRIPT = """
                 let matchingTemplates = templates.filter(function (template) {
                     return template.spawns === key;
                 });
-                const directions = []
+                const directions = {}
                 matchingTemplates.forEach(function (template) {
                     directions[template.direction] = template;
                 });
-                console.log(directions)
-                if (directions.length === 1) {
-                    newSpawns[key].push(spawns[key]);
+                if (directions.length === 0) {
+                    newSpawns[key][directions[0]] = spawns[key];
                 } else {
                     const allDirections = ['north', 'east', 'south', 'west'];
                     Object.keys(directions).forEach(function (direction) {
@@ -111,18 +110,16 @@ SCRIPT = """
                             } else {
                                 obj[dir] = [];
                             }
-                            console.log(obj)
                         });
                         newSpawns[`${key}_${direction}`] = obj;
                         directions[direction]['spawns'] = `${key}_${direction}`;
                     });
                 }
-                console.log(JSON.stringify(newSpawns));
             });
 
             fileContent['spawns'] = newSpawns;
 
-            if (spawn !== null && spawn.offset) {
+            if (spawn && spawn.offset) {
                 const offsetY = spawn.offsetY ? spawn.offsetY : 0;
                 spawn.offset = [spawn.offset[0], offsetY, spawn.offset[1]];
                 fileContent['spawn'] = spawn;
@@ -143,8 +140,6 @@ SCRIPT = """
             if (surroundingBlocks) {
                 fileContent['surroundingBlocks'] = surroundingBlocks;
             }
-
-            console.log(JSON.stringify(fileContent));
 
             isTemplatesFileLoaded = true;
             updateTemplatesButtonState();
@@ -196,7 +191,7 @@ SCRIPT = """
         color: white;
         padding: 10px 24px;
         border-radius: 6px;
-        margin: 0px 77.5px;
+        margin: 0px 50px;
         cursor: pointer;
     }
 
