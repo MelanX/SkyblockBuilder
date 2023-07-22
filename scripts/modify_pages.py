@@ -136,9 +136,11 @@ SCRIPT = """
 
             fileContent['spawns'] = newSpawns;
 
-            if (spawn && spawn.offset) {
-                const offsetY = spawn.offsetY ? spawn.offsetY : 0;
-                spawn.offset = [spawn.offset[0], offsetY, spawn.offset[1]];
+            if (spawn) {
+                if (spawn.offset) {
+                    const offsetY = spawn.offsetY ? spawn.offsetY : 0;
+                    spawn.offset = [spawn.offset[0], offsetY, spawn.offset[1]];
+                }
                 fileContent['spawn'] = spawn;
             }
 
